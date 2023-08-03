@@ -42,6 +42,8 @@ class JWT{
         Log::debug("----createJWT End----");
         return $header.",".$payload.",".$signature;
     }
+
+    
 }
 
 ?>

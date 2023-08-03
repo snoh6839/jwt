@@ -24,11 +24,11 @@ class AuthController extends Controller
 
         Log::debug("----IssueToken End----");
 
-        $response = [
+        $res = [
             'errflg' => 0,
             'token' => $token
         ];
 
-        return response();
+        return response(json_encode($res), 200);
     }
 }
