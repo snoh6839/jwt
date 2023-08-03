@@ -31,4 +31,27 @@ class AuthController extends Controller
 
         return response(json_encode($res), 200);
     }
+
+    public function chk(Request $req)
+    {
+        $token = $req->header('Authorization');
+
+        $res = [
+            'errflg' => '0',
+            'msg' => 'ok.'
+        ];
+
+        $status = 200;
+
+        if( !$this->obj_jwt->chkToken($token)){
+            $res = [
+                'errflg' => '1',
+                'msg' => '유효한 토큰이 아닙니다.'
+            ];
+
+            $status = 401;
+        }
+
+        return response(json_encode($res), $status);
+    }
 }
