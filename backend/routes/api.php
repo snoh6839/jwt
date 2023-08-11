@@ -15,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/token', [AuthController::class, 'IssueToken']);
+Route::post('/token', [AuthController::class, 'issueToken']);
 Route::get('/chk', [AuthController::class, 'chk']);
